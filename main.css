@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+body{
+    font-family: "Markazi Text", serif;
+}
+
+.navbar{
+    background-color: orange;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.navbar h2{
+    font-size: 30px;
+    color: #000;
+    cursor: pointer;
+    margin-left: 2rem;
+    &&:hover{
+        background-color: #222831;
+        color: #fff;
+        padding: 5px 5px;
+    }
+}
+.nav-link {
+    border-radius: 10px;
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+    font-weight: 600;
+    &&:hover{
+        background-color: #ffff;
+        color: #222831;
+        padding: 0 7px;
+    }
+}
+
+.header{
+    font-size: 45px;
+    text-align: center;
+    margin-top: 5px;
+    padding: 10px;
+    text-decoration: wavy underline #000;
+}
+
+.main{
+    display: flex;
+    margin: 10px;
+}
+.section{
+    padding: 15px;
+    width: 530px;
+    height: 75vh;
+    border: solid 3px black;
+    border-radius: 10px;
+
+}
+
+.side img{
+    width: 100%;
+    height: 75vh;
+    border-radius: 15px;
+}
+
+.card img{
+    width: 100%;
+    height: 80%;
+}

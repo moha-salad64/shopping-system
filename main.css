@@ -88,6 +88,11 @@ body{
     margin-top: 5rem;
 }
 
+.arrow{
+    width: 200px;
+    height: 150px;
+}
+
 .form-label{
     font-size: 25px;
 }

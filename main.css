@@ -80,7 +80,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 75vh;
+    height: 70vh;
     width: 40vw;
     border: 1px solid blueviolet;
     border-radius: 20px;
@@ -108,4 +108,61 @@ body{
     padding: auto;
     font-size: 25px;
     text-align: center;
+}
+
+
+/* dashboard style section start*/
+.sectionpart{
+   display: flex;
+   flex-direction: row;
+    gap: 10px;
+}
+
+.sidenav{
+    background-color: #7a0177;
+    margin: 10px;
+    width: 23%;
+    height: 100vh;
+    border-radius: 15px;
+}
+
+.sidebox{
+    border: solid black 1px;
+    height: 100vh;
+    margin: 10px;
+    background-color: #7a0177;
+    color: #fff;
+}
+
+
+.dash {
+    font-size: 50px;
+    text-align: center;
+    font-weight: 600;
+    color: #ffff;
+}
+
+.sidenav ul li{
+    list-style-type: none;
+    font-size: 40px;
+    border: solid #ff595e thin;
+    color: #fff;
+    text-align: center;
+    margin: 20px;
+    margin-left: -17px;
+    border-radius: 20px;
+    padding: 5px 0px;
+}
+.sidenav  li a{
+   text-decoration-line: none;
+   text-transform: capitalize;
+   color: #fff;
+}
+
+.container h1{
+    text-align: center;
+}
+
+.logout{
+    margin-top: 3rem;
 }

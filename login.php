@@ -77,20 +77,22 @@
               <label class="form-label fs-3 fw-bold">Password</label>
               <input type="password" class="form-control fs-3" name="password" placeholder="Enter Password">
             </div> 
-            <div class="m-3 d-flex justify-content-between">
+            <div class="m-3 d-flex gap-5">
                 <div class="form-check">
-                    <input class="form-check-input fs-4" type="radio" name="flexRadioDefault"  unchecked>
+                    <input class="form-check-input fs-4" type="radio" name=""  unchecked>
                     <label class="form-check-label fs-4" > Remember me </label>
                 </div>
-                <div>
-                 <span> 
-                    <a class="link-offset-2 link-underline link-underline-opacity-0 fs-4" href="#">Forget password</a>
-                 </span>
-                </div>
-                <div>
-                 <span> 
-                    <a class="link-offset-2 link-underline link-underline-opacity-0 fs-4" href="signup.php">Sign Up</a>
-                 </span>
+                <div class="d-flex justify-content-between ms-auto gap-2">
+                    <div>
+                        <span> 
+                        <a class="link-offset-2 link-underline link-underline-opacity-0 fs-4" href="#">Forget password</a>
+                        </span>
+                    </div>
+                    <div>
+                        <span> 
+                        <a class="link-offset-2 link-underline link-underline-opacity-0 fs-4" href="register.php">Sign Up</a>
+                        </span>
+                    </div>
                 </div>
              </div>
         <div class="mt">

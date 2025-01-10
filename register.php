@@ -108,50 +108,50 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <h1 class="text-center fs-1 fw-bolder flex-grow-1">Regestrasion</h1>
                  </div>
                 <div class="col">
-                <label class="form-label fs-3">First Name</label>
-                    <input class="form-control fs-5" type="text" placeholder="First Name" name="firstname">
+                <label class="form-label fs-3 fw-bold">First Name</label>
+                    <input class="form-control fs-5 fw-bold" type="text" placeholder="First Name" name="firstname">
                     <label class="form-label fs-3">Last Name</label>
-                    <input class="form-control fs-5" type="text" placeholder="Last Name" name="lastname">
-                    <label class="form-label fs-3">Username</label>
-                    <input class="form-control fs-5" type="text" placeholder="Username" name="username">
-                    <label class="form-label fs-3">Password</label>
-                    <input class="form-control fs-5" type="password" placeholder="Password" name="password">
-                    <label class="form-label fs-3">Gender</label>
+                    <input class="form-control fs-5 fw-bold" type="text" placeholder="Last Name" name="lastname">
+                    <label class="form-label fs-3 fw-bold">Username</label>
+                    <input class="form-control fs-5 fw-bold" type="text" placeholder="Username" name="username">
+                    <label class="form-label fs-3 fw-bold">Password</label>
+                    <input class="form-control fs-5 fw-bold" type="password" placeholder="Password" name="password">
+                    <label class="form-label fs-3 fw-bold">Gender</label>
                     <div   class="form-check d-flex align-items-center gap-5">
                         <div class="d-flex align-items-centerg gap-1">
-                            <input class="form-check-input fs-5" type="radio" value="male" name="gender" unchecked>
-                            <label class="form-check-label fs-5">
+                            <input class="form-check-input fs-5 fw-bold" type="radio" value="male" name="gender" unchecked>
+                            <label class="form-check-label fs-5 fw-bold">
                                 Male
                             </label>        
                         </div>
                         <div class="d-flex align-items-centerg gap-1">
-                            <input class="form-check-input fs-5" type="radio" value="female" name="gender" unchecked>
-                            <label class="form-check-label fs-5">
+                            <input class="form-check-input fs-5 fw-bold" type="radio" value="female" name="gender" unchecked>
+                            <label class="form-check-label fs-5 fw-bold">
                                 Female
                             </label>        
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <label class="form-label fs-3">User Type</label>
-                    <input class="form-control fs-5" type="text" placeholder="User Type" name="usertype">
-                    <label class="form-label fs-3">Profile Picture</label>
-                    <input class="form-control fs-5" type="file" placeholder="Profile Picture" name="image">
-                    <label class="form-label">Phone</label>
-                    <input class="form-control fs-5" type="text" placeholder="Phone" name="phone">
-                    <label class="form-label fs-3">Email</label>
-                    <input class="form-control fs-5" type="email" placeholder="Email" name="email">
-                    <label class="form-label fs-3">User status</label>
+                    <label class="form-label fs-3 fw-bold">User Type</label>
+                    <input class="form-control fs-5 fw-bold" type="text" placeholder="User Type" name="usertype">
+                    <label class="form-label fs-3 fw-bold">Profile Picture</label>
+                    <input class="form-control fs-5 fw-bold" type="file" placeholder="Profile Picture" name="image">
+                    <label class="form-label fs-3 fw-bold">Phone</label>
+                    <input class="form-control fs-5 fw-bold" type="text" placeholder="Phone" name="phone">
+                    <label class="form-label fs-3 fw-bold">Email</label>
+                    <input class="form-control fs-5 fw-bold" type="email" placeholder="Email" name="email">
+                    <label class="form-label fs-3 fw-bold">User status</label>
                     <div class="form-check d-flex align-items-center gap-5"> 
                         <div class="form-check">
-                            <input class="form-check-input fs-5" type="radio" value="active" name="status" id="" unchecked>
-                            <label class="form-check-label fs-5">
+                            <input class="form-check-input fs-5 fw-bold" type="radio" value="active" name="status" id="" unchecked>
+                            <label class="form-check-label fs-5 fw-bold">
                                 Active
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input fs-5" type="radio" value="no active" name="status" id="" unchecked>
-                            <label class="form-check-label fs-5">
+                            <input class="form-check-input fs-5 fw-bold" type="radio" value="no active" name="status" id="" unchecked>
+                            <label class="form-check-label fs-5 fw-bold">
                                 No Active
                             </label>
                         </div>

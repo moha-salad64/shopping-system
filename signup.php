@@ -82,10 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
             <?php
                 if($success){
-                echo '<div class="alert alert-success alert-Success" fade show role="alert">
-                        <strong>Employee Resgister Successfuly</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>';
+                    header('location:/shop-system/index.php');
                 };
             ?>
             <?php
@@ -99,13 +96,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <?php
             if($userCheck){
                 echo  '<div class="alert alert-danger alert-dismissible" fade show role="alert">
-                <strong>User name!</strong> already Created!.
+                <strong>This User!</strong> already Created!.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
             }
             ?>
                 <div class="d-flex justfy-content-between align-items-center">
-                    <a class="link-offset-2 link-underline link-underline-opacity-0" href="index.php">
+                    <a class="link-offset-2 link-underline link-underline-opacity-0" href="login.php">
                     <img src="images/b_arrow.png" alt="back to home page" width="50" height="50">
                     </a>
                     <h1 class="text-center fs-1 fw-bolder flex-grow-1">Regestrasion</h1>
@@ -136,30 +133,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                 </div>
                 <div class="col">
-                        <label class="form-label fs-3">User Type</label>
-                        <input class="form-control fs-5" type="text" placeholder="User Type" name="usertype">
-                        <label class="form-label fs-3">Profile Picture</label>
-                        <input class="form-control fs-5" type="file" placeholder="Profile Picture" name="image">
-                        <label class="form-label">Phone</label>
-                        <input class="form-control fs-5" type="text" placeholder="Phone" name="phone">
-                        <label class="form-label fs-3">Email</label>
-                        <input class="form-control fs-5" type="email" placeholder="Email" name="email">
-                        <label class="form-label fs-3">User status</label>
-                        <div class="form-check d-flex align-items-center gap-5"> 
-                            <div class="form-check">
-                                <input class="form-check-input fs-5" type="radio" value="active" name="status" id="" unchecked>
-                                <label class="form-check-label fs-5">
-                                    Active
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input fs-5" type="radio" value="no active" name="status" id="" unchecked>
-                                <label class="form-check-label fs-5">
-                                   No Active
-                                </label>
-                            </div>
+                    <label class="form-label fs-3">User Type</label>
+                    <input class="form-control fs-5" type="text" placeholder="User Type" name="usertype">
+                    <label class="form-label fs-3">Profile Picture</label>
+                    <input class="form-control fs-5" type="file" placeholder="Profile Picture" name="image">
+                    <label class="form-label">Phone</label>
+                    <input class="form-control fs-5" type="text" placeholder="Phone" name="phone">
+                    <label class="form-label fs-3">Email</label>
+                    <input class="form-control fs-5" type="email" placeholder="Email" name="email">
+                    <label class="form-label fs-3">User status</label>
+                    <div class="form-check d-flex align-items-center gap-5"> 
+                        <div class="form-check">
+                            <input class="form-check-input fs-5" type="radio" value="active" name="status" id="" unchecked>
+                            <label class="form-check-label fs-5">
+                                Active
+                            </label>
                         </div>
-                </div>
+                        <div class="form-check">
+                            <input class="form-check-input fs-5" type="radio" value="no active" name="status" id="" unchecked>
+                            <label class="form-check-label fs-5">
+                                No Active
+                            </label>
+                        </div>
+                    </div>
+            </div>
             </div>
             <div class="row gap-3 justify-content-center mt-4 p-2">
                 <button type="submit" class="btn btn-primary w-25 fs-3 rounded-3" name="btnsave">Save</button>

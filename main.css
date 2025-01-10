@@ -80,7 +80,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 70vh;
+    height: 75vh;
     width: 40vw;
     border: 1px solid blueviolet;
     border-radius: 20px;

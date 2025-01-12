@@ -110,48 +110,48 @@ body{
     text-align: center;
 }
 
-
-/* dashboard style section start*/
+/* dashboard style section start*/ 
 .sectionpart{
    display: flex;
-   flex-direction: row;
-    gap: 10px;
+   gap: 10px;
 }
-
+.container_dash{
+    background-color: #e0e0e0;
+    padding: 18px;
+}
 .sidenav{
-    background-color: #7a0177;
-    margin: 10px;
-    width: 23%;
+    /* background-color: #3D3D3D; */
+    margin: 7px;
+    width: 20%;
     height: 100vh;
     border-radius: 15px;
 }
-
-.sidebox{
-    border: solid black 1px;
-    height: 100vh;
-    margin: 10px;
-    background-color: #7a0177;
-    color: #fff;
-}
-
-
-.dash {
-    font-size: 50px;
+.sidenav h2{
+    font-size: 30px;
     text-align: center;
     font-weight: 600;
     color: #ffff;
+    padding: 6px 0;
 }
-
+.profile img{
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    border: 1px black solid;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
 .sidenav ul li{
     list-style-type: none;
     font-size: 40px;
     border: solid #ff595e thin;
     color: #fff;
     text-align: center;
-    margin: 20px;
-    margin-left: -17px;
+    margin: 13px;
+    margin-left: -10px;
     border-radius: 20px;
-    padding: 5px 0px;
+    padding: 2px 0px;
 }
 .sidenav  li a{
    text-decoration-line: none;
@@ -159,10 +159,45 @@ body{
    color: #fff;
 }
 
-.container h1{
+.sidebox{
+    height: 100vh;
+    overflow-y: auto;
+} 
+.sidebox table{
+    border: solid black 1px;
+    width: 75vw;
+}
+.sidebox thead tr{
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px black solid;
     text-align: center;
 }
+.sidebox table td{
+    font-size: 18px;
+}
+.dash-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dash-header a{
+    font-size: 30px;
+    font-weight: 600w;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 15px;
+}
+.dash-header h2{
+   color: #000;
+   text-align: center;
+   flex-grow: 1;
+   font-size: 45px;
+   font-weight: 600w;
+   text-decoration: underline wavy blue;
+}
 
-.logout{
-    margin-top: 3rem;
+.logout li{
+    margin-top: 10rem;
+    background-color: #3D3BF3;
 }

@@ -22,11 +22,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $extantion = end($extantion);
         //uploading image in the file 
         move_uploaded_file($_FILES['image']['tmp_name'], "upload/". $_POST['username']."$extantion");
-        $image = $_POST['username']."$extantion";
+        $filename = $_POST['username'] . "." . $extantion;
+        $image = $filename;
     }
      else{
             $image = "";
-
          //checking varaibles that hold the value of the input fields
         if(empty($firstname) && empty($lastname) && empty($username) && empty($password) && empty($gender) && empty($usertype) && empty($phone) && empty($email) && empty($status)){
             $inputCheck = true;
@@ -39,12 +39,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             //check the username are match the usename from input
             if($result){
                 $row = mysqli_num_rows($result);
+                // echo $row;
                 if($row > 0){
                     $userCheck = true;
                 }
                 else{
+                    $hashed_password = md5($password , PASSWORD_DEFAULT);
                     $sql = "insert into emp_register(first_name , last_name , user_name , password , gender , user_type , phone , email , user_status , profile_picture) 
-                                   values(' $firstname' , '$lastname' , '$username' , '$password' , '$gender' , '$usertype' , '$phone' , '$email' , '$status' , '$image')";
+                                   values(' $firstname' , '$lastname' , '$username' , '$hashed_password' , '$gender' , '$usertype' , '$phone' , '$email' , '$status' , '$image')";
                             
                             //excute query of insert
                             $result = $conn->query($sql);
@@ -82,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
             <?php
                 if($success){
-                    header('location:/shop-system/index.php');
+                    header('location:/shop-system/dashboard.php');
                 };
             ?>
             <?php

@@ -96,8 +96,7 @@
                 </div>
              </div>
         <div class="mt">
-            <button type="submti" class="btn btn-success w-50">Log in</button>
-            <button type="reset" class="btn btn-danger  w-50">Cancel</button>
+            <button type="submti" class="btn btn-success w-100">Log in</button>
         </div>
 
         </form>

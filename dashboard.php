@@ -9,43 +9,111 @@
     <link rel="stylesheet" href="main.css"> 
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <h1 >Welcome to Dashboard Page!</h1>
-            <div class="col-6 sidenav">
-                <h2 class="dash">Dashboard</h2>
+    <div class="container_dash">
+        <div class="col sectionpart">
+            <div class="sidenav">
+                <?php
+                $admin = 'admin';
+                    if($_SERVER['REQUEST_METHOD'] =="GET"){
+                        require_once('dbconn.php');
+                        $sql = "select user_type , profile_picture from emp_register where user_type ='$admin'";
+                        $result = $conn->query($sql);
+                        if ($result && $result->num_rows > 0) {
+                            $user = $result->fetch_assoc();
+                            $user_type = $user['user_type'];
+                            $profile_picture = $user['profile_picture'];
+                        } else {
+                            $user_type = '';
+                            $profile_picture = '';
+                        }
+                    }
+                    else{
+                        header('location:/dashboard.php');
+                    }
+                ?>
+                <div class="profile">
+                <?php if ($user_type == 'admin'): ?>
+                    <div class="profile-section">
+                        <img 
+                            src="upload/<?php echo !empty($profile_picture) ? $profile_picture : 'default.jpg'; ?>" 
+                            alt="Admin Profile Picture" 
+                            class="img-thumbnail" 
+                            style="width: 150px; height: 150px; object-fit: cover;"
+                        >
+                        <p class="text-center fw-bold">Admin</p>
+                    </div>
+                <?php endif; ?>
+
+                    <!-- <img src="images/profile-img.jpeg" alt="prifile picture">  -->
+                </div>
+                <h2>Dashboard</h2>
                 <ul>
-                    <li><a href="">employee</a></li>
-                    <li><a href="">employee</a></li>
-                    <li><a href="">employee</a></li>
-                    <li><a href="">employee</a></li>
-                    <li><a href="">employee</a></li>
+                    <li><a href="dashboard.php">employee</a></li>
+                    <li><a href="">Shopping List</a></li>
+                    <li><a href="">welcome</a></li>
+                    <li><a href="">welcome</a></li>
                 </ul>
                 <ul class="logout">
-                    <li><a href="">log out</a></li>
+                    <li><a href="login.php">log out</a></li>
                 </ul>
             </div>
-            <div class="col-6 mt-3 sidebox">
-                <section class="">
-                    <h2>Introduction</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis, arcu non facilisis placerat, 
-                                augue felis malesuada odio, nec pharetra turpis augue ac orci. Duis ultricies quam sit amet nisi viverra, 
-                                ac pharetra metus sollicitudin. Curabitur in urna vitae elit sodales tempor ac non ligula. Integer venenatis 
-                                nulla eu urna dapibus, at dictum turpis placerat.
-                            </p>
-                            <h2>Main Content</h2>
-                            <p>
-                                Mauris ut lacinia lorem. Fusce feugiat orci sit amet enim auctor, nec fermentum metus iaculis. Nullam vel nisi 
-                                sed eros volutpat vulputate ut id velit. Integer et vestibulum velit. Nunc elementum tortor vitae ultricies 
-                                hendrerit. Sed mollis, mi sit amet volutpat ultricies, eros dui tempor eros, sed auctor elit magna eu felis.
-                            </p>
-                    </section>
+            <div class="sidebox">
+             <div class="dash-header">
+                 <a class='btn btn-primary btn-sm' href='register.php'>Register Now</a>
+                 <h2>Welcome To Dashboard Page!</h2>
+             </div>   
+            <table class="table table-striped table-hover tablecontainer">
+            <thead >
+                <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>User Type</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>User Statu</th>
+                <th>Profile Picture</th>
+                <th>Action</th>
+                </tr>
+            </thead>
+            <?php
+            if($_SERVER['REQUEST_METHOD'] =="GET"){
+                require_once('dbconn.php');
+                //select all employee from database
+                $sql = "select * from emp_register";
+                //excution of the query
+                $result = $conn->query($sql);
+                if($result){
+                while($rows = $result->fetch_array()){
+                    echo "
+                        <tr>
+                        <td>$rows[1]</td>
+                        <td>$rows[2]</td>
+                        <td>$rows[3]</td>
+                        <td>$rows[4]</td>
+                        <td>$rows[5]</td>
+                        <td>$rows[6]</td>
+                        <td>$rows[7]</td>
+                        <td>$rows[8]</td>
+                        <td>$rows[9]</td>
+                        <td>$rows[10]</td>
+                         <td>
+                            <a class='btn btn-success btn-sm' href='edit.php?id=$rows[0]'>Edit</a>
+                            <a class='btn btn-danger btn-sm' href='delete.php?id=$rows[0]'>Delete</a>
+                            </td>
+                        </tr>";
+                    }
+                }
+            }
+            ?> 
+        </table>
             </div>
-        </div>
     </div>
+  
 <?php
-require('include_files/footer.html');
+// require('include_files/footer.html');
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

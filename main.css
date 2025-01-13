@@ -8,6 +8,7 @@
    
 }
 body{
+    background-color: #e0e0e0;
     font-family: "Markazi Text", serif;
 }
 
@@ -120,7 +121,7 @@ body{
     padding: 18px;
 }
 .sidenav{
-    /* background-color: #3D3D3D; */
+    background-color: #3D3D3D;
     margin: 7px;
     width: 20%;
     height: 100vh;

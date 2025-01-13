@@ -40,7 +40,7 @@
                             class="img-thumbnail" 
                             style="width: 150px; height: 150px; object-fit: cover;"
                         >
-                        <p class="text-center fw-bold">Admin</p>
+                        <p class="text-center fw-bold text-light">Admin</p>
                     </div>
                 <?php endif; ?>
 
@@ -49,7 +49,7 @@
                 <h2>Dashboard</h2>
                 <ul>
                     <li><a href="dashboard.php">employee</a></li>
-                    <li><a href="">Shopping List</a></li>
+                    <li><a href="shopping.php">Shopping List</a></li>
                     <li><a href="">welcome</a></li>
                     <li><a href="">welcome</a></li>
                 </ul>
@@ -111,10 +111,7 @@
         </table>
             </div>
     </div>
-  
-<?php
-// require('include_files/footer.html');
-?>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

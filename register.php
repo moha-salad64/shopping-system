@@ -2,7 +2,7 @@
 $userCheck = false;
 $inputCheck = false;
 $success = false;
-
+$adminCheck = false;
 // the requist of the user as post
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -27,41 +27,42 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
      else{
             $image = "";
+     }
          //checking varaibles that hold the value of the input fields
         if(empty($firstname) && empty($lastname) && empty($username) && empty($password) && empty($gender) && empty($usertype) && empty($phone) && empty($email) && empty($status)){
             $inputCheck = true;
         }
         else{
-            //reterif the data from database to check username same as username in db 
-            $sql = "select * from emp_register where user_name = '$username'";
-            //excute the query
-            $result = $conn->query($sql);
-            //check the username are match the usename from input
-            if($result){
-                $row = mysqli_num_rows($result);
-                // echo $row;
-                if($row > 0){
-                    $userCheck = true;
+                //reterif the data from database to check username same as username in db 
+                $sql = "select * from emp_register where user_name = '$username'";
+                //excute the query
+                $result = $conn->query($sql);
+                //check the username are match the usename from input
+                if($result){
+                    $row = mysqli_num_rows($result);
+                    // echo $row;
+                    if($row > 0){
+                        $userCheck = true;
+                    }
+                    else{
+                        $hashed_password = md5($password , PASSWORD_DEFAULT);
+                        $sql = "insert into emp_register(first_name , last_name , user_name , password , gender , user_type , phone , email , user_status , profile_picture) 
+                                    values(' $firstname' , '$lastname' , '$username' , '$hashed_password' , '$gender' , '$usertype' , '$phone' , '$email' , '$status' , '$image')";
+                                
+                                //excute query of insert
+                                $result = $conn->query($sql);
+                                if($result){
+                                    $success = true;
+                                }
+                                else{
+                                    die("invalid insert data " . $conn->error);
+                               }
+                    }
                 }
-                else{
-                    $hashed_password = md5($password , PASSWORD_DEFAULT);
-                    $sql = "insert into emp_register(first_name , last_name , user_name , password , gender , user_type , phone , email , user_status , profile_picture) 
-                                   values(' $firstname' , '$lastname' , '$username' , '$hashed_password' , '$gender' , '$usertype' , '$phone' , '$email' , '$status' , '$image')";
-                            
-                            //excute query of insert
-                            $result = $conn->query($sql);
-                            if($result){
-                                $success = true;
-                            }
-                            else{
-                                die("invalid insert data " . $conn->error);
-                            }
-                }
+
             }
 
-        }
-
-    }
+        
    
 }
 
@@ -87,6 +88,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     header('location:/shop-system/dashboard.php');
                 };
             ?>
+                <?php
+                if($adminCheck){
+                echo '<div class="alert alert-danger alert-dismissible" fade show role="alert">
+                        <strong>Admin user only created one time!</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                };
+            ?>
             <?php
                 if($inputCheck){
                 echo '<div class="alert alert-danger alert-dismissible" fade show role="alert">
@@ -104,7 +113,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
             ?>
                 <div class="d-flex justfy-content-between align-items-center">
-                    <a class="link-offset-2 link-underline link-underline-opacity-0" href="login.php">
+                    <a class="link-offset-2 link-underline link-underline-opacity-0" href="index.php">
                     <img src="images/b_arrow.png" alt="back to home page" width="50" height="50">
                     </a>
                     <h1 class="text-center fs-1 fw-bolder flex-grow-1">Regestrasion</h1>

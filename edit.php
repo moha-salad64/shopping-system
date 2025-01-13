@@ -10,6 +10,9 @@
 </head>
 <body>
     <?php
+    require('include_files/header.html');
+    ?>
+    <?php
     $errorMessage = false;
     $inputError = false;
     if(isset($_GET['id'])){
@@ -86,9 +89,9 @@
         <form method="POST" action="">
             <div class="row">
                 <div class="d-flex justfy-content-between align-items-center">
-                    <a class="link-offset-2 link-underline link-underline-opacity-0" href="login.php">
+                    <!-- <a class="link-offset-2 link-underline link-underline-opacity-0" href="login.php">
                     <img src="images/b_arrow.png" alt="back to home page" width="50" height="50">
-                    </a>
+                    </a> -->
                     <h1 class="text-center fs-1 fw-bolder flex-grow-1">Employee Update</h1>
                  </div>
                  <?php

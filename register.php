@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $userCheck = true;
                     }
                     else{
-                        $hashed_password = md5($password , PASSWORD_DEFAULT);
+                        $hashed_password = password_hash($password , PASSWORD_DEFAULT);
                         $sql = "insert into emp_register(first_name , last_name , user_name , password , gender , user_type , phone , email , user_status , profile_picture) 
                                     values(' $firstname' , '$lastname' , '$username' , '$hashed_password' , '$gender' , '$usertype' , '$phone' , '$email' , '$status' , '$image')";
                                 

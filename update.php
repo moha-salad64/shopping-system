@@ -14,39 +14,58 @@
     $success = false;
     $itempriceControl = false;
     $itemnumberControl = false;
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    require_once('dbconn.php');
-    $itemname = $_POST['itemname'];
-    $itemprice = $_POST['itemprice'];
-    $itemnumber = $_POST['itemnumber'];
-         //checking varaibles that hold the value of the input fields
-        if(empty($itemname) && empty($itemprice) && empty($itemnumbe)){
+    if($_SERVER['REQUEST_METHOD'] == "GET"){
+        require_once('dbconn.php');
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM shopping_items WHERE id = $id";
+            $result = $conn->query($sql);
+            $row = $result->fetch_array();
+            if(!$row){
+                header("location:/shop-sytem/shopping.php");
+                exit;
+            }
+            else{
+                $item_name = $row['item_name'];
+                $item_price = $row['item_price'];
+                $item_number = $row['itme_number'];
+            }    
+        }
+    }
+    
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        require_once('dbconn.php');
+        $item_name = $_POST['itemname'];
+        $item_price = $_POST['itemprice'];
+        $item_number = $_POST['itemnumber'];
+        if(empty($item_name) && empty($item_price) && empty($item_number)){
             $inputCheck = true;
         }
         else{
-                if($itemprice <= 0){
-                    $itempriceControl = true;
+            if($item_price <= 0){
+                $itempriceControl = true;
+            }
+            elseif($item_number < 0){
+                $itemnumberControl = true;
+            }
+            else{
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    $sql = "UPDATE shopping_items SET item_name = '$item_name', item_price = '$item_price', itme_number = '$item_number' WHERE id = $id";
+                } else {
+                    $sql = "INSERT INTO shopping_items (item_name, item_price, item_number) VALUES ('$item_name', '$item_price', '$item_number')";
                 }
-                elseif($item_number < 0){
-                    $itemnumberControl = true;
+                $result = $conn->query($sql);
+                if($result){
+                    $success = true;
+                    header("location:/shop-system/shopping.php");
                 }
-                else{
-                    $sql = "insert into shopping_items(item_name , item_price , itme_number) 
-                                values('$itemname' , '$itemprice' , '$itemnumber')"; 
-                    $result = $conn->query($sql);
-                    if($result){
-                        $success = true;
-                    }
-                    else{
-                        die("invalid insertion error" .$conn->error);
-                    }
-                }
-        }      
-}
-?>
+            }
+        }
+    }
+    ?>
     <div class="container mt-5 w-75">
-        <form action="" method="post">
+        <form action="" method="POST">
             <h2 class="fs-1 fw-bolder ">Add New Item</h2>
             <?php
                     if($inputCheck){
@@ -55,42 +74,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>';
                     };
-                    ?>
-                   <?php
+                ?>
+
+                <?php
                     if($itempriceControl){
                     echo '<div class="alert alert-danger alert-dismissible w-50" fade show role="alert">
-                            <strong>Price must be greater then 0.</strong>
+                            <strong>Item price must be greater then 0.</strong>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>';
                     };
-                    ?>
+                ?>
 
-                    <?php
+                <?php
                     if($itemnumberControl){
                     echo '<div class="alert alert-danger alert-dismissible w-50" fade show role="alert">
                             <strong>Number of items must be 0 || greater then.</strong>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>';
                     };
-                    ?>
-                    
-                    <?php
-                        if($success){
-                            header("location:/shop-system/shopping.php");
-                        };
-                    ?>
+                ?>
+
             <label class="form-label fs-3 fw-bold">Item Name</label>
-            <input class="form-control fs-5 fw-bold w-50" type="text" placeholder="Add Item Name" name="itemname">
+            <input class="form-control fs-5 fw-bold w-50" type="text" placeholder="Add Item Name" name="itemname" value= "<?php echo $item_name ?>" >
             <label class="form-label fs-3 fw-bold">Item Price</label>
-            <input class="form-control fs-5 fw-bold w-50" type="number" placeholder="Add Item Price" name="itemprice">
+            <input class="form-control fs-5 fw-bold w-50" type="number" placeholder="Add Item Price" name="itemprice" value = "<?php echo $item_price ?>">
             <label class="form-label fs-3 fw-bold">Item Number</label>
-            <input class="form-control fs-5 fw-bold w-50" type="number" placeholder="Add Item Number" name="itemnumber">
+            <input class="form-control fs-5 fw-bold w-50" type="number" placeholder="Add Item Number" name="itemnumber" value="<?php echo $item_number ?>">
             <div class="row gap-3 mt-4 p-2">
                 <button type="submit" class="btn btn-primary w-25 fs-3 rounded-3">Save</button>
-                <button type="reset" class="btn btn-danger w-25 fs-3 rounded-3">Cancel</button>
             </div>
         </form>
-
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

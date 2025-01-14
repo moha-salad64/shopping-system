@@ -74,8 +74,6 @@ body{
     width: 100%;
     height: 80%;
 }
-
-
 /* login page style */
 .logincontainer{
     display: flex;
@@ -93,7 +91,6 @@ body{
     width: 200px;
     height: 150px;
 }
-
 .form-label{
     font-size: 25px;
 }
@@ -127,6 +124,11 @@ body{
     height: 100vh;
     border-radius: 15px;
 }
+
+.sidenav img{
+    border-radius: 100%;
+}
+
 .sidenav h2{
     font-size: 30px;
     text-align: center;
@@ -164,7 +166,7 @@ body{
     height: 100vh;
     overflow-y: auto;
 } 
-.sidebox table{
+.sidebox table thead{
     border: solid black 1px;
     width: 75vw;
 }
@@ -176,10 +178,11 @@ body{
 }
 .sidebox table td{
     font-size: 18px;
+    border: 1px black solid;
 }
 .dash-header{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 .dash-header a{
@@ -189,16 +192,16 @@ body{
     margin: 2px;
     border-radius: 15px;
 }
-.dash-header h2{
+/* .dash-header h2{
    color: #000;
    text-align: center;
    flex-grow: 1;
    font-size: 45px;
    font-weight: 600w;
-   text-decoration: underline wavy blue;
-}
+} */
 
 .logout li{
     margin-top: 10rem;
-    background-color: #3D3BF3;
+    background-color: #221eee;
+    padding: auto;
 }

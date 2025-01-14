@@ -12,6 +12,11 @@
     <div class="container_dash">
         <div class="col sectionpart">
             <div class="sidenav">
+            <div class="d-flex justfy-content-between align-items-center m-3">
+                    <a class="link-offset-2 link-underline link-underline-opacity-0" href="index.php">
+                    <img src="images/b_arrow.png" alt="back to home page" width="30" height="30">
+                    </a>
+                 </div>
                 <?php
                 $admin = 'admin';
                     if($_SERVER['REQUEST_METHOD'] =="GET"){
@@ -50,8 +55,6 @@
                 <ul>
                     <li><a href="dashboard.php">employee</a></li>
                     <li><a href="shopping.php">Shopping List</a></li>
-                    <li><a href="">welcome</a></li>
-                    <li><a href="">welcome</a></li>
                 </ul>
                 <ul class="logout">
                     <li><a href="login.php">log out</a></li>
@@ -59,8 +62,7 @@
             </div>
             <div class="sidebox">
              <div class="dash-header">
-                 <a class='btn btn-primary btn-sm' href='register.php'>Register Now</a>
-                 <h2>Welcome To Dashboard Page!</h2>
+                 <a class='btn btn-primary btn-sm' href='login.php'>Register Now</a>
              </div>   
             <table class="table table-striped table-hover tablecontainer">
             <thead >

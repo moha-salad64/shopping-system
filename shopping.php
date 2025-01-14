@@ -10,10 +10,12 @@
 </head>
 <body>
     <div class="container mt-4">
-        <?php require('include_files/header.html'); ?>
+        <?php
+         require ("include_files/header.html");
+        ?>
             <div class="d-flex justfy-content-between align-items-center gap-lg-5">
-                <a class='btn btn-primary btn-sm fs-4' href='add_item.php'>Add New Item</a>
-                <h2 class="fs-1 fw-bolder">Wellcome to Shopping List Page</h2>
+                <a class='btn btn-primary btn-sm fs-4 mb-2' href='add_item.php'>Add New Item</a>
+                <!-- <h2 class="fs-1 fw-bolder">Wellcome to Shopping List Page</h2> -->
                  </div>   
         <table class="table table-striped table-hover w-50 table-bordered">
                 <thead class="fs-3 fw-bold" >
@@ -39,10 +41,11 @@
                             <td>$rows[2]</td>
                             <td>$rows[3]</td>
                              <td>
-                                <a class='btn btn-success btn-sm fs-5' href='edit_item.php?id=$rows[0]'>Edit</a>
+                                <a class='btn btn-success btn-sm fs-5' href='update.php?id=$rows[0]'>Edit</a>
                                 <a class='btn btn-danger btn-sm fs-5' href='delete_item.php?id=$rows[0]'>Delete</a>
                                 </td>
                             </tr>";
+                            // echo $rows[0];
                         }
                     }
                 }
